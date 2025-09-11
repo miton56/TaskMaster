@@ -18,7 +18,7 @@
             android:name=".CambiarAlarma"
             android:exported="false" />
         <activity
-            android:name=".tareas"
+            android:name=".crearTareas"
             android:exported="false"
             android:theme="@style/Theme.TaskMaster" />
         <activity
