@@ -1,8 +1,12 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-  <style name="Theme.TaskMaster" parent="Base.Theme.TaskMaster">
-    <!-- Transparent system bars for edge-to-edge. -->
+  <style name="Theme.TaskMaster" parent="Theme.AppCompat.Light.DarkActionBar">
+    <item name="colorPrimary">@color/purple_500</item>
+    <item name="colorPrimaryDark">@color/purple_700</item>
+    <item name="colorAccent">@color/teal_200</item>
+
+    <!-- Transparent system bars for edge-to-edge -->
     <item name="android:navigationBarColor">@android:color/transparent</item>
     <item name="android:statusBarColor">@android:color/transparent</item>
-    <item name="android:windowLightStatusBar">?attr/isLightTheme</item>
+    <item name="android:windowLightStatusBar">true</item> <!-- o ?attr/isLightTheme si defines ese atributo -->
   </style>
 </resources>

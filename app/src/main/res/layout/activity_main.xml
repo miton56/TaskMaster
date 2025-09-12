@@ -62,16 +62,5 @@
         android:layout_marginTop="24dp" />
 
     <!-- Switch para modo oscuro/claro -->
-    <androidx.appcompat.widget.SwitchCompat
-        android:id="@+id/switchTema"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Modo oscuro"
-        android:textSize="14sp"
-        android:textColor="?attr/colorOnBackground"
-        app:showText="true"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_margin="16dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

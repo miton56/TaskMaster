@@ -75,14 +75,19 @@
                     android:text="Prioridad"
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"/>
 
+                <!-- Nombre -->
+
                 <RatingBar
                     android:id="@+id/prioridadBar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    style="?android:attr/ratingBarStyleSmall"
-                    android:layout_marginBottom="12dp"/>
+                    android:numStars="5"
+                    android:stepSize="1.0"
+                    android:layout_marginBottom="16dp"
+                    android:isIndicator="false"
+                    android:focusable="true"
+                    android:clickable="true" />
 
-                <!-- Nombre -->
                 <TextView
                     android:id="@+id/textView3"
                     android:layout_width="match_parent"

@@ -87,6 +87,10 @@ public class editarTarea extends AppCompatActivity {
     }
 
     private void guardarCambios() {
+        if (tarea == null) {
+            Toast.makeText(this, "Error: no se pudo cargar la tarea.", Toast.LENGTH_SHORT).show();
+            return; // evita que siga y lance excepción
+        }
         // Actualizar la tarea con los datos de la vista
         tarea.setNombre(editTextNombre.getText().toString());
         tarea.setHoraInicio(editTextHoraInicio.getText().toString());
@@ -108,8 +112,10 @@ public class editarTarea extends AppCompatActivity {
         ArrayList<Tarea> lista = listaTarea.getInstance().getLista();
         for (int i = 0; i < lista.size(); i++) {
             Tarea t = lista.get(i);
-            if (t.equals(tarea)) {  // comparamos el objeto
-                lista.set(i, tarea); // actualizamos la lista con la tarea modificada
+            if (t.equals(tarea)) {
+                listaTarea.getInstance().eliminar(tarea);
+                listaTarea.getInstance().agregar(tarea);
+
                 break;
             }
         }
