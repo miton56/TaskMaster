@@ -6,6 +6,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import androidx.appcompat.app.AppCompatDelegate;
+import androidx.appcompat.widget.SwitchCompat;
+
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
@@ -19,17 +22,19 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         SharedPreferences prefs = getSharedPreferences("configuracion", MODE_PRIVATE);
-        String tema = prefs.getString("tema", "claro");
+        boolean temaOscuro = prefs.getBoolean("temaOscuro", false);
 
-        if (tema.equals("claro")) {
-            setTheme(R.style.Theme_TaskMaster_Light);
+        if (temaOscuro) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
         } else {
-            setTheme(R.style.Theme_TaskMaster_Dark);
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         }
 
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
+
+
 
         Tarea tareaInit = new Tarea("Trabajo", 5, "Terminar informe", "09:00", "11:00", "11/09/2025");
 

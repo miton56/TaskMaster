@@ -11,6 +11,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TaskMaster">
+        <activity android:name=".editarTarea"
+            android:label="Editar Tarea"
+            android:parentActivityName=".verTareas">
+        </activity>
         <activity
             android:name=".verTareas"
             android:exported="false" />

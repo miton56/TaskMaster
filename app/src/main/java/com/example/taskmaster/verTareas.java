@@ -30,9 +30,6 @@ public class verTareas extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_ver_tareas);
 
-        getSupportActionBar().setTitle("Tareas");
-
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         listaTarea tareas = listaTarea.getInstance();
 

@@ -1,5 +1,6 @@
 package com.example.taskmaster;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -7,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
@@ -23,12 +25,16 @@ public class adapter extends RecyclerView.Adapter<adapter.MiViewHolder>{
 
     public static class MiViewHolder extends RecyclerView.ViewHolder{
 
+        public CardView cardView;
+
         ImageView ivTarea;
 
-        TextView tvNombre, tvCategoria, tvPrioridad, tvFecha, tvHoraInicio, tvHoraTermino;
+        TextView tvNombre, tvCategoria, tvPrioridad, tvFecha, tvHoraInicio, tvHoraTermino, tvTerminada;
 
         public MiViewHolder(View itemView){
             super(itemView);
+
+            cardView = itemView.findViewById(R.id.tarjetaTarea);
 
             ivTarea = itemView.findViewById(R.id.ivTarea);
             tvNombre = itemView.findViewById(R.id.tvNombre);
@@ -37,6 +43,7 @@ public class adapter extends RecyclerView.Adapter<adapter.MiViewHolder>{
             tvFecha = itemView.findViewById(R.id.tvFecha);
             tvHoraInicio = itemView.findViewById(R.id.tvHoraInicio);
             tvHoraTermino = itemView.findViewById(R.id.tvHoraTermino);
+            tvTerminada = itemView.findViewById(R.id.tvEstado);
 
         }
 
@@ -62,8 +69,20 @@ public class adapter extends RecyclerView.Adapter<adapter.MiViewHolder>{
         holder.tvHoraInicio.setText("Inicio: " + tarea.getHoraInicio());
         holder.tvHoraTermino.setText("Termino: " + tarea.getHoraTermino());
 
+        if(tarea.isTerminada()){
+            holder.tvTerminada.setText("terminada");
+        }else{
+            holder.tvTerminada.setText("no Terminada");
+        }
+
+
 
         holder.ivTarea.setImageResource(R.drawable.lofigirl);
+
+        holder.cardView.setOnClickListener(v -> {
+            Intent intent = new Intent(v.getContext(), editarTarea.class);
+            v.getContext().startActivity(intent);
+        });
     }
 
     @Override

@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+    android:id="@+id/editTareaLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?android:attr/windowBackground"
-    tools:context=".crearTareas">
+    tools:context=".EditarTarea">
 
     <androidx.cardview.widget.CardView
         android:layout_width="0dp"
@@ -32,17 +33,17 @@
 
                 <!-- Título -->
                 <TextView
-                    android:id="@+id/textView2"
+                    android:id="@+id/textViewTitulo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Crear una nueva tarea"
+                    android:text="Editar tarea"
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
                     android:textStyle="bold"
                     android:layout_marginBottom="12dp"/>
 
                 <!-- Imagen -->
                 <ImageView
-                    android:id="@+id/imageView4"
+                    android:id="@+id/imageViewTarea"
                     android:layout_width="200dp"
                     android:layout_height="150dp"
                     android:scaleType="centerCrop"
@@ -53,7 +54,6 @@
 
                 <!-- Categoría -->
                 <TextView
-                    android:id="@+id/textView4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Categoría"
@@ -61,7 +61,7 @@
                     android:layout_marginTop="8dp"/>
 
                 <Spinner
-                    android:id="@+id/listaCategorias"
+                    android:id="@+id/spinnerCategorias"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@android:drawable/btn_dropdown"
@@ -69,14 +69,13 @@
 
                 <!-- Prioridad -->
                 <TextView
-                    android:id="@+id/textView5"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Prioridad"
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"/>
 
                 <RatingBar
-                    android:id="@+id/prioridadBar"
+                    android:id="@+id/ratingBarPrioridad"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     style="?android:attr/ratingBarStyleSmall"
@@ -84,14 +83,13 @@
 
                 <!-- Nombre -->
                 <TextView
-                    android:id="@+id/textView3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Nombre"
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"/>
 
                 <EditText
-                    android:id="@+id/nombreEntry"
+                    android:id="@+id/editTextNombre"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Escribe el nombre de la tarea"
@@ -101,14 +99,13 @@
 
                 <!-- Hora de inicio -->
                 <TextView
-                    android:id="@+id/textView10"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Hora de inicio"
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"/>
 
                 <EditText
-                    android:id="@+id/horaInitEntry"
+                    android:id="@+id/editTextHoraInicio"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Selecciona hora"
@@ -120,14 +117,13 @@
 
                 <!-- Hora de término -->
                 <TextView
-                    android:id="@+id/textView6"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Hora de término"
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"/>
 
                 <EditText
-                    android:id="@+id/horaEndEntry"
+                    android:id="@+id/editTextHoraTermino"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Selecciona hora"
@@ -139,14 +135,13 @@
 
                 <!-- Fecha -->
                 <TextView
-                    android:id="@+id/textView8"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Fecha"
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"/>
 
                 <EditText
-                    android:id="@+id/fechaEntry"
+                    android:id="@+id/editTextFecha"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Selecciona fecha"
@@ -156,15 +151,73 @@
                     android:inputType="none"
                     android:layout_marginBottom="16dp"/>
 
-                <!-- Botón -->
-                <Button
-                    android:id="@+id/btnIngresar"
+                <!-- CheckBox de terminada -->
+                <CheckBox
+                    android:id="@+id/checkBoxTerminada"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tarea terminada"
+                    android:layout_marginBottom="12dp"/>
+
+                <!-- Estado de la tarea -->
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Ingresar"
+                    android:text="Estado de la tarea"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+                    android:layout_marginBottom="4dp"/>
+
+                <RadioGroup
+                    android:id="@+id/radioGroupEstado"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="12dp">
+
+                    <RadioButton
+                        android:id="@+id/radioPorHacer"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Por hacer"/>
+
+                    <RadioButton
+                        android:id="@+id/radioEnProgreso"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="En progreso"/>
+
+                    <RadioButton
+                        android:id="@+id/radioCompletada"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Completada"/>
+                </RadioGroup>
+
+                <!-- ProgressBar -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Progreso de la tarea"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+                    android:layout_marginBottom="4dp"/>
+
+                <ProgressBar
+                    android:id="@+id/progressBarTarea"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:progress="50"
+                    android:max="100"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_marginBottom="16dp"/>
+
+                <!-- Botón para guardar cambios -->
+                <Button
+                    android:id="@+id/btnGuardarCambios"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Guardar cambios"
                     android:backgroundTint="?attr/colorPrimary"
-                    android:textColor="@android:color/white"
-                    android:onClick="insertarTarea"/>
+                    android:textColor="@android:color/white"/>
 
             </LinearLayout>
         </ScrollView>

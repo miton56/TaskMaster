@@ -5,75 +5,73 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="?android:attr/windowBackground"
     tools:context=".MainActivity">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="303dp"
-        android:layout_height="726dp"
-        tools:layout_editor_absoluteX="39dp"
-        tools:layout_editor_absoluteY="2dp">
+    <!-- Título principal -->
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TaskMaster"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        android:textColor="?attr/colorPrimary"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="64dp" />
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="158dp"
-            android:layout_height="74dp"
-            android:text="TaskMaster"
-            android:textSize="30dp"
+    <!-- Botón Crear Tarea -->
+    <Button
+        android:id="@+id/btnCrearTarea"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="Crear tarea"
+        android:backgroundTint="?attr/colorPrimary"
+        android:textColor="@android:color/white"
+        app:layout_constraintTop_toBottomOf="@id/textView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="48dp" />
 
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="94dp" />
+    <!-- Botón Ver Tarea -->
+    <Button
+        android:id="@+id/btnVerTarea"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="Ver tareas"
+        android:backgroundTint="?attr/colorPrimary"
+        android:textColor="@android:color/white"
+        app:layout_constraintTop_toBottomOf="@id/btnCrearTarea"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="24dp" />
 
-        <LinearLayout
-            android:layout_width="132dp"
-            android:layout_height="52dp"
-            android:orientation="vertical"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+    <!-- Botón Cambiar Alarma -->
+    <Button
+        android:id="@+id/btnCambiarAlarma"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="Cambiar alarma"
+        android:backgroundTint="?attr/colorPrimary"
+        android:textColor="@android:color/white"
+        app:layout_constraintTop_toBottomOf="@id/btnVerTarea"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="24dp" />
 
-            <Button
-                android:id="@+id/btnCambiarAlarma"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="cambiar alarma" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/linearLayout2"
-            android:layout_width="134dp"
-            android:layout_height="58dp"
-            android:orientation="vertical"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView">
-
-            <Button
-                android:id="@+id/btnCrearTarea"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="crear tarea" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/linearLayout"
-            android:layout_width="129dp"
-            android:layout_height="56dp"
-            android:layout_marginTop="68dp"
-            android:orientation="vertical"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.488"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
-
-            <Button
-                android:id="@+id/btnVerTarea"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="ver tarea" />
-        </LinearLayout>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    <!-- Switch para modo oscuro/claro -->
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/switchTema"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Modo oscuro"
+        android:textSize="14sp"
+        android:textColor="?attr/colorOnBackground"
+        app:showText="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="16dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

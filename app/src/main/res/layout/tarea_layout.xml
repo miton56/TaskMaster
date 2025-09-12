@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/tarjetaTarea"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
@@ -95,6 +96,16 @@
                     android:text="Termino: 00:00"
                     android:textColor="@color/black"/>
             </LinearLayout>
+
+            <!-- Estado de la tarea -->
+            <TextView
+                android:id="@+id/tvEstado"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Estado: No terminado"
+                android:textColor="@color/black"
+                android:textStyle="italic"
+                android:layout_marginTop="4dp"/>
 
         </LinearLayout>
 

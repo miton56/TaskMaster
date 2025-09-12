@@ -1,6 +1,10 @@
 package com.example.taskmaster;
 
-public class Tarea {
+import java.io.Serializable;
+
+public class Tarea implements Serializable {
+
+
 
     private String categoria;
 
@@ -13,6 +17,8 @@ public class Tarea {
     private String horaTermino;
 
     private String fecha;
+
+    private boolean terminada;
 
     public Tarea(String Categoria, float Prioridad, String Nombre, String HoraInicio, String HoraTermino, String Fecha){
 
@@ -28,6 +34,8 @@ public class Tarea {
 
         this.fecha = Fecha;
 
+        this.terminada = false;
+
 
     }
 
@@ -37,6 +45,14 @@ public class Tarea {
 
     public void setCategoria(String categoria) {
         this.categoria = categoria;
+    }
+
+    public boolean isTerminada() {
+        return terminada;
+    }
+
+    public void setTerminada(boolean terminada) {
+        this.terminada = terminada;
     }
 
     public float getPrioridad() {
