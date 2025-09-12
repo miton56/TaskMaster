@@ -15,7 +15,7 @@
             android:name=".verTareas"
             android:exported="false" />
         <activity
-            android:name=".CambiarAlarma"
+            android:name=".configuracion"
             android:exported="false" />
         <activity
             android:name=".crearTareas"

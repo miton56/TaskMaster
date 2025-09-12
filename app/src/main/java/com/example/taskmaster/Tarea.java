@@ -28,6 +28,7 @@ public class Tarea {
 
         this.fecha = Fecha;
 
+
     }
 
     public String getCategoria() {
