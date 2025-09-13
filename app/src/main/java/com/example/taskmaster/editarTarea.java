@@ -2,6 +2,7 @@ package com.example.taskmaster;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -34,9 +35,10 @@ public class editarTarea extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_editar_tarea); // tu XML de edición
+        setContentView(R.layout.activity_editar_tarea);
 
-        // Referencias de los elementos
+        this.tarea = (Tarea) getIntent().getSerializableExtra("tareaActual");
+
         editTextNombre = findViewById(R.id.editTextNombre);
         editTextHoraInicio = findViewById(R.id.editTextHoraInicio);
         editTextHoraTermino = findViewById(R.id.editTextHoraTermino);
@@ -51,8 +53,6 @@ public class editarTarea extends AppCompatActivity {
         progressBarTarea = findViewById(R.id.progressBarTarea);
         btnGuardarCambios = findViewById(R.id.btnGuardarCambios);
 
-        // Obtener la tarea desde un intent (debe enviarse como Serializable)
-        tarea = (Tarea) getIntent().getSerializableExtra("tarea");
 
         if (tarea != null) {
             cargarDatosTarea();
@@ -68,11 +68,22 @@ public class editarTarea extends AppCompatActivity {
     }
 
     private void cargarDatosTarea() {
+        String[] categorias = {"escuela", "trabajo", "casa"};
+        ArrayAdapter<String> adaptador = new ArrayAdapter<>(
+                this,
+                android.R.layout.simple_spinner_item,
+                categorias
+        );
+
+        adaptador.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        this.spinnerCategorias.setAdapter(adaptador);
+
         editTextNombre.setText(tarea.getNombre());
         editTextHoraInicio.setText(tarea.getHoraInicio());
         editTextHoraTermino.setText(tarea.getHoraTermino());
         editTextFecha.setText(tarea.getFecha());
-        // Aquí deberías setear el spinner según la categoría actual
+        this.spinnerCategorias.setSelection(adaptador.getPosition(tarea.getCategoria()));
         ratingBarPrioridad.setRating(tarea.getPrioridad());
         checkBoxTerminada.setChecked(tarea.isTerminada());
 

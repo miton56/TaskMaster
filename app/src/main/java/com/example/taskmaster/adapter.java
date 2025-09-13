@@ -19,6 +19,8 @@ public class adapter extends RecyclerView.Adapter<adapter.MiViewHolder>{
 
     private listaTarea tareasBase = listaTarea.getInstance();
 
+    Tarea tarea;
+
     public adapter(){
         this.tareas = tareasBase.getLista();
     }
@@ -59,7 +61,7 @@ public class adapter extends RecyclerView.Adapter<adapter.MiViewHolder>{
 
     @Override
     public void onBindViewHolder(@NonNull MiViewHolder holder, int position) {
-        Tarea tarea = tareas.get(position);
+        this.tarea = tareas.get(position);
 
 
         holder.tvNombre.setText(tarea.getNombre());
@@ -81,6 +83,9 @@ public class adapter extends RecyclerView.Adapter<adapter.MiViewHolder>{
 
         holder.cardView.setOnClickListener(v -> {
             Intent intent = new Intent(v.getContext(), editarTarea.class);
+
+            intent.putExtra("tareaActual", this.tarea);
+
             v.getContext().startActivity(intent);
         });
     }
